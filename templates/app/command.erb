@@ -1,0 +1,4 @@
+<%= @command_real -%>
+<% unless @interactive %> --no-interaction<% end -%>
+<% if @env_real %> --env=<%= @env_real -%><% end -%>
+<%= @verbosity_real -%>
