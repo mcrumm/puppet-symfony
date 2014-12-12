@@ -1,0 +1,5 @@
+composer config<% if @global %> --global<% end -%>
+<%= ' ' + @key -%>
+<%- @values_real.each do |value| -%>
+<%= ' ' + value -%>
+<%- end -%>
