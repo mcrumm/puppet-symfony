@@ -1,3 +1,9 @@
+# == Class: symfony
+#
+# Please refer to https://github.com/mcrumm/puppet-symfony#symfony for
+# parameter documentation.
+#
+#
 class symfony (
   $target,
   $env          = $symfony::params::env,
@@ -55,7 +61,7 @@ class symfony (
   unless empty($commands) {
     create_resources('symfony::app::command', $commands, {
       'cwd'       => $target,
-      'user'      => $user_real,
+      'user'      => $user,
       'verbosity' => $verbosity,
       'logoutput' => $logoutput,
       'require'   => ::Composer::Exec[$project_real],

@@ -1,3 +1,8 @@
+# == Class: symfony::params
+#
+# This class should be considered private.
+#
+#
 class symfony::params {
   if $::osfamily == 'Linux' and $::operatingsystem == 'Amazon' {
     $family = 'RedHat'

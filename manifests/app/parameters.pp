@@ -1,3 +1,8 @@
+# == Define: symfony::app::parameters
+#
+# This class should be considered private.
+#
+#
 define symfony::app::parameters (
   $target     = undef,
   $parameters = {},
@@ -8,8 +13,10 @@ define symfony::app::parameters (
 ) {
   include symfony
 
+  $kernel_path = "${::symfony::target}/${::symfony::kernel_dir}"
+
   $target_real = $target ? {
-    undef   => "${::symfony::target}/${::symfony::kernel_dir}/${::symfony::config_dir}",
+    undef   => "${kernel_path}/${::symfony::config_dir}",
     default => $target,
   }
 
