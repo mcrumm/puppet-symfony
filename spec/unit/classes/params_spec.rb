@@ -14,6 +14,18 @@ describe 'symfony::params', :type => :class do
     it { should contain_class('symfony::params') }
   end
 
+  context 'for osfamily Debian' do
+    let(:facts) {{ :osfamily => 'Debian' }}
+
+    it { should contain_class('symfony::params') }
+  end
+
+  context 'for osfamily Darwin' do
+    let(:facts) {{ :osfamily => 'Darwin' }}
+
+    it { should contain_class('symfony::params') }
+  end
+
   context 'unsupported osfamily' do
     let :facts do
       {

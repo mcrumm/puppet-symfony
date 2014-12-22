@@ -11,6 +11,10 @@ class symfony::params {
   }
 
   case $family {
+    'Darwin': {
+      $user   = '_www'
+      $group  = '_www'
+    }
     'Debian': {
       $user   = 'www-data'
       $group  = 'www-data'
