@@ -4,12 +4,10 @@
 #
 #
 define symfony::app::parameters (
-  $target     = undef,
+  $target     = $title,
   $parameters = {},
-  $filename   = 'parameters.yml',
   $owner      = undef,
   $group      = undef,
-  $template   = 'symfony/app/parameters.erb',
 ) {
   include symfony
 
@@ -20,7 +18,7 @@ define symfony::app::parameters (
     default => $target,
   }
 
-  validate_string($target_real, $filename, $template)
+  validate_string($target_real)
 
   $owner_real = $owner ? {
     undef   => $::symfony::owner,
@@ -32,9 +30,9 @@ define symfony::app::parameters (
     default => $group,
   }
 
-  file { "${target_real}/${filename}" :
+  file { "${target_real}/parameters.yml":
     ensure  => file,
-    content => template($template),
+    content => template("${module_name}/app/parameters.erb"),
     owner   => $owner_real,
     group   => $group_real,
   }
