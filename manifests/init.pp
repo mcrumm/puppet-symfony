@@ -33,6 +33,7 @@ class symfony (
   ::composer::exec { $project_real:
     cmd         => 'install',
     cwd         => $target,
+    user        => $user,
     scripts     => $scripts,
     interaction => $interactive,
     optimize    => true,
