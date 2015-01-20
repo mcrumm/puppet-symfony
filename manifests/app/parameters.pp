@@ -2,7 +2,7 @@ define symfony::app::parameters (
   $target     = undef,
   $parameters = {},
   $filename   = 'parameters.yml',
-  $user       = undef,
+  $owner      = undef,
   $group      = undef,
   $template   = 'symfony/app/parameters.erb',
 ) {
@@ -15,9 +15,9 @@ define symfony::app::parameters (
 
   validate_string($target_real, $filename, $template)
 
-  $user_real = $user ? {
-    undef   => $::symfony::user,
-    default => $user,
+  $owner_real = $owner ? {
+    undef   => $::symfony::owner,
+    default => $owner,
   }
 
   $group_real = $group ? {
@@ -28,7 +28,7 @@ define symfony::app::parameters (
   file { "${target_real}/${filename}" :
     ensure  => file,
     content => template($template),
-    owner   => $user_real,
+    owner   => $owner_real,
     group   => $group_real,
   }
 }

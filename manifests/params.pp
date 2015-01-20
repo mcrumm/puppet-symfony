@@ -1,16 +1,4 @@
 class symfony::params {
-  $console      = 'console'
-  $kernel_dir   = 'app'
-  $config_dir   = 'config'
-  $logs_dir     = 'logs'
-  $web_dir      = 'web'
-  $env          = 'dev'
-  $scripts      = true
-  $interactive  = false
-  $verbosity    = false
-  $logoutput    = false
-  $exec_timeout = 600
-
   if $::osfamily == 'Linux' and $::operatingsystem == 'Amazon' {
     $family = 'RedHat'
   } else {
@@ -30,4 +18,17 @@ class symfony::params {
       fail("Unsupported platform: ${family}")
     }
   }
+
+  $owner        = $user
+  $console      = 'console'
+  $kernel_dir   = 'app'
+  $config_dir   = 'config'
+  $logs_dir     = 'logs'
+  $web_dir      = 'web'
+  $env          = 'dev'
+  $scripts      = true
+  $interactive  = false
+  $verbosity    = false
+  $logoutput    = false
+  $exec_timeout = 600
 }
