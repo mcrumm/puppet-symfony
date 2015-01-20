@@ -11,6 +11,7 @@ class symfony (
   $interactive  = $symfony::params::interactive,
   $verbosity    = $symfony::params::verbosity,
   $user         = $symfony::params::user,
+  $owner        = $symfony::params::owner,
   $group        = $symfony::params::group,
   $exec_timeout = $symfony::params::exec_timeout,
   $logoutput    = $symfony::params::logoutput,
@@ -44,7 +45,7 @@ class symfony (
     symfony::app::parameters { $project_real:
       target      => "${target}/${kernel_dir}/${config_dir}",
       parameters  => $parameters,
-      user        => $user,
+      owner       => $owner,
       group       => $group,
       before      => ::Composer::Exec[$project_real],
     }
