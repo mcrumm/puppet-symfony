@@ -1,5 +1,5 @@
 name         'mcrumm-symfony'
-version      '0.0.2'
+version      '0.0.3'
 license      'MIT License'
 summary      'A Puppet module to manage Symfony applications'
 description  'Execute Symfony Console commands, run composer scripts, etc.'
