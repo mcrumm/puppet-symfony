@@ -23,12 +23,12 @@ describe 'symfony::create_project', type: :define do
 
     it do
       should contain_composer__project(title).with({
-	project_name:   title,
-	target_dir:     p[:target_dir],
-	version:        p[:version],
-	repository_url: p[:repository_url],
-	user:           p[:user],
-	timeout:        p[:timeout],
+        project_name:   title,
+        target_dir:     p[:target_dir],
+        version:        p[:version],
+        repository_url: p[:repository_url],
+        user:           p[:user],
+        timeout:        p[:timeout],
       })
     end
   end
@@ -45,13 +45,13 @@ describe 'symfony::create_project', type: :define do
       let(:title) { title }
 
       params = {
-	project_name:   title,
-	target_dir:     '/test/sonata-project',
-	version:        'dev-2.4-develop',
-	repository_url: 'https://github.com/sonata-project/sandbox.git',
-	user:           'nobody',
-	group:          'nobody',
-	timeout:        300,
+        project_name:   title,
+        target_dir:     '/test/sonata-project',
+        version:        'dev-2.4-develop',
+        repository_url: 'https://github.com/sonata-project/sandbox.git',
+        user:           'nobody',
+        group:          'nobody',
+        timeout:        300,
       }
       let(:params) { params }
 
@@ -60,16 +60,16 @@ describe 'symfony::create_project', type: :define do
 
     context 'with parameters' do
       params = {
-	target_dir: '/test/symfony',
-	user: 'www-data',
-	group: 'www-data',
-	parameters: { 'foo' => 'bar'}
+        target_dir: '/test/symfony',
+        user: 'www-data',
+        group: 'www-data',
+        parameters: { 'foo' => 'bar'}
       }
       let(:params) { params }
 
       it_behaves_like 'create_project', params
       it do
-	should contain_symfony__app__parameters('/test/symfony/app/config')
+        should contain_symfony__app__parameters('/test/symfony/app/config')
       end
     end
   end

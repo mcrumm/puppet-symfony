@@ -77,7 +77,7 @@ define symfony::create_project (
   unless empty($parameters) {
     symfony::app::parameters { "${target_dir}/${kernel_dir}/${config_dir}":
       parameters => $parameters,
-      user       => $user_real,
+      owner      => $user_real,
       group      => $group_real,
       require    => Composer::Project["${project_name}"],
     }
