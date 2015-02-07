@@ -42,7 +42,7 @@ class symfony (
     logoutput   => $logoutput,
   }
 
-  if $parameters {
+  unless empty($parameters) {
     symfony::app::parameters { $project_real:
       target      => "${target}/${kernel_dir}/${config_dir}",
       parameters  => $parameters,
@@ -52,7 +52,7 @@ class symfony (
     }
   }
 
-  if $commands {
+  unless empty($commands) {
     create_resources('symfony::app::command', $commands, {
       'cwd'       => $target,
       'user'      => $user_real,
