@@ -1,3 +1,8 @@
+# == Class: symfony::params
+#
+# This class should be considered private.
+#
+#
 class symfony::params {
   if $::osfamily == 'Linux' and $::operatingsystem == 'Amazon' {
     $family = 'RedHat'
@@ -6,6 +11,10 @@ class symfony::params {
   }
 
   case $family {
+    'Darwin': {
+      $user   = '_www'
+      $group  = '_www'
+    }
     'Debian': {
       $user   = 'www-data'
       $group  = 'www-data'

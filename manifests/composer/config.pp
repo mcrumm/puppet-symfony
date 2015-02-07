@@ -1,3 +1,8 @@
+# == Define: symfony::composer::config
+#
+# This class should be considered private.
+#
+#
 define symfony::composer::config (
   $key            = $title,
   $values         = [],

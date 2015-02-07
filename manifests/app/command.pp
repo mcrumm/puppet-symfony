@@ -1,3 +1,8 @@
+# == Define: symfony::app::command
+#
+# This class should be considered private.
+#
+#
 define symfony::app::command (
   $cwd,
   $command      = $title,
